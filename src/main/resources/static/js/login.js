@@ -1,34 +1,21 @@
-/**
- * 登录
- */
-$(function(){
-     layui.use(['form' ,'layer'], function() {
-         var form = layui.form;
-         var layer = layui.layer;
-         form.on("submit(login)",function () {
-             login();
-             return false;
-         });
-         var path=window.location.href;
-         if(path.indexOf("kickout")>0){
-             layer.alert("您的账号已在别处登录；若不是您本人操作，请立即修改密码！",function(){
-                 window.location.href="/login";
-             });
-         }
-     })
- })
-
-function login(){
-    var username=$("#username").val();
-    var password=$("#password").val();
-    var rememberMe = $("#rememberMe").val();
-    $.post("/user/login",$("#useLogin").serialize(),function(data){
-        if(data.code == 1){
-            window.location.href=data.url;
-        }else{
-            layer.alert(data.message,function(){
-                layer.closeAll();//关闭所有弹框
-            });
-        }
+if(window.top!==window.self){window.top.location=window.location};
+layui.use(['element'], function () {
+    var $ = layui.jquery;
+    $(document).on('click', '.captcha-img', function () {
+        var src = this.src.split("?")[0];
+        this.src = src + "?" + Math.random();
     });
-}
+    $(document).on('click', '.ajax-login', function (e) {
+        e.preventDefault();
+        var form = $(this).parents("form");
+        var url = form.attr("action");
+        var serializeArray = form.serializeArray();
+        $.post(url, serializeArray, function (result) {
+            if(result.code !== 200){
+                $('.captcha-img').click();
+            }
+            $.fn.Messager(result);
+        });
+    });
+    $('.layui-layer-loading').hide();
+});
