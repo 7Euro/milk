@@ -1,60 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--head部分-->
-<head th:include="layout :: htmlhead" th:with="title='后台管理'">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+    <title>TIMO登录</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
-<style>
-    body{
-        background-repeat: no-repeat;
-        background-size:100% 100%;
-        background-attachment: fixed;
-    }
-</style>
-<body background="images\bg.jpg" >
-<div class="layui-container" style="height: 100%">
-
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 6%">
-        <legend style="margin-left: 40%"><span style="font-weight: bold;font-size:22px;">海韵后台管理系统</span></legend>
-    </fieldset>
-
-    <div class="layui-row">
-        <div class="layui-col-xs3">
-            <div class="grid-demo grid-demo-bg1">
-                &nbsp;
-            </div>
-        </div>
-        <div class="layui-col-xs6">
-            <div class="grid-demo">
-                <form id="useLogin" class="layui-form" action="">
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">用户名</label>
-                        <div class="layui-input-inline">
-                            <input id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input" type="tel"/>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">密&nbsp;&nbsp;码</label>
-                        <div class="layui-input-inline">
-                            <input id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input" type="password"/>
-                        </div>
-                    </div>
-                    <div class="layui-form-item" style="margin-top: -20px;">
-                        <label class="layui-form-label"></label>
-                        <div class="layui-inline">
-                            <input type="checkbox" name="rememberMe" lay-skin="primary"  title="记住我"/>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <div class="layui-input-block">
-                            <button class="layui-btn" type="reset">重置</button>
-                            <button id="loginBtn" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">登录</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+<body class="layui-layout-login">
+<div class="login-bg">
+    <div class="cover"></div>
 </div>
-<script type="text/javascript" src="/js/login.js"></script>
+<div class="login-content" th:th:classappend="${isCaptcha} ? 'captcha'">
+    <h1 class="login-box-title"><i class="fa fa-fw fa-user"></i>登录</h1>
+    <form class="layui-form" th:action="@{/login}" method="post">
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-username" for="username"></label>
+            <input class="layui-input" type="text" name="username" id="username" placeholder="用户名">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon layui-icon-password" for="password"></label>
+            <input class="layui-input" type="password" name="password" id="password" placeholder="密码">
+        </div>
+        <div th:if="${isCaptcha}" class="layui-form-item captcha-item">
+            <label class="layui-icon layui-icon-vercode"></label>
+            <input class="layui-input" type="text" name="captcha" autocomplete="off" placeholder="验证码">
+            <img class="captcha-img" th:src="@{/captcha}" />
+        </div>
+        <div class="layui-form-item">
+            <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
+            <a class="layui-layout-right forget-password" href="javascript:alert('请联系超级管理员！')">忘记密码?</a>
+        </div>
+        <button type="submit" class="layui-btn layui-btn-fluid ajax-login"><i class="fa fa-sign-in fa-lg fa-fw"></i> 登录</button>
+    </form>
+    <div class="layui-layer-loading login-page-loading"><div class="layui-layer-content"></div></div>
+</div>
+<script th:replace="/common/template :: script"></script>
+<script th:src="@{/js/login.js}" charset="utf-8"></script>
 </body>
 </html>
