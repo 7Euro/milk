@@ -3,13 +3,11 @@ server:
 
 
 spring:
-  application:
-      name: haiyu
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/haiyu?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://49.235.211.11:3318/timo?useSSL=false&characterEncoding=utf-8
       username: root
-      password: root
+      password: 123456
       initial-size: 1
       min-idle: 1
       max-active: 20
@@ -25,13 +23,7 @@ spring:
     cache: false
 
 
-mybatis:
-    mapper-locations: classpath:mapper/*.xml
-
-#设置静态资源路径，多个以逗号分隔
-spring.resources.static-locations: classpath:static/,file:static/
-
-### 一些基本的项目配置
+### 基本的项目配置
 project:
   captcha-open: false                         #是否开启登录验证码
   shiro:

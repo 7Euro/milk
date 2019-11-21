@@ -8,7 +8,7 @@ import com.leo.common.utils.result.CommonResult;
  * @Version: v1.0
  * @date 2019/11/20 15:14
  **/
-public class BusinessException extends Exception implements CommonResult {
+public class BusinessException extends RuntimeException implements CommonResult {
     private static final long serialVersionUID = 1L;
     /**
      * 联一个CommonError类
