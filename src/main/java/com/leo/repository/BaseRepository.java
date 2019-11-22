@@ -1,6 +1,6 @@
 package com.leo.repository;
 
-import com.leo.common.utils.constant.StatusConst;
+import com.leo.common.constant.StatusConst;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

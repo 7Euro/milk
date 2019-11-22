@@ -1,8 +1,8 @@
 package com.leo.service.impl;
 
-import com.leo.common.utils.error.BusinessException;
-import com.leo.common.utils.result.EmBusinessResult;
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.error.BusinessException;
+import com.leo.common.result.EmBusinessResult;
+import com.leo.common.result.StatusEnum;
 import com.leo.domain.Dept;
 import com.leo.domain.User;
 import com.leo.repository.DeptRepository;
@@ -69,7 +69,7 @@ public class DeptServiceImpl implements DeptService {
      */
     @Override
     public List<Dept> getListByPid(Long pid, Long notId){
-        Sort sort = new Sort(Sort.Direction.ASC, "sort");
+        Sort sort = Sort.by(Sort.Direction.ASC, "sort");
         return deptRepository.findByPidAndIdNot(sort, pid, notId);
 
     }

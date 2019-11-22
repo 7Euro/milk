@@ -1,13 +1,9 @@
 package com.leo.service.impl;
 
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.result.StatusEnum;
 import com.leo.domain.Menu;
 import com.leo.repository.MenuRepository;
 import com.leo.service.MenuService;
-import com.linln.common.enums.StatusEnum;
-import com.linln.modules.system.domain.Menu;
-import com.linln.modules.system.repository.MenuRepository;
-import com.linln.modules.system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
@@ -77,7 +73,7 @@ public class MenuServiceImpl implements MenuService {
      */
     @Override
     public List<Menu> getListBySortOk() {
-        Sort sort = new Sort(Sort.Direction.ASC, "type", "sort");
+        Sort sort = Sort.by(Sort.Direction.ASC, "type", "sort");
         return menuRepository.findAllByStatus(sort, StatusEnum.OK.getCode());
     }
 
@@ -97,7 +93,7 @@ public class MenuServiceImpl implements MenuService {
      */
     @Override
     public List<Menu> getListByPid(Long pid, Long notId){
-        Sort sort = new Sort(Sort.Direction.ASC, "sort");
+        Sort sort = Sort.by(Sort.Direction.ASC, "sort");
         return menuRepository.findByPidAndIdNot(sort, pid, notId);
     }
 

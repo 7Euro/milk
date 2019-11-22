@@ -1,4 +1,4 @@
-package com.leo.common.utils.constant;
+package com.leo.common.constant;
 
 /**
  * 数据状态常量

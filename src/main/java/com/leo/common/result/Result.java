@@ -1,6 +1,6 @@
-package com.leo.common.utils.result;
+package com.leo.common.result;
 
-import com.leo.common.utils.data.URL;
+import com.leo.common.data.URL;
 import lombok.Data;
 
 /**
@@ -47,7 +47,7 @@ public class Result<T> {
      * @param object 对象
      */
     public static Result success(Object object){
-        String message = EmBusinessResult.SUCCESS.getMsg();
+        String message = EmBusinessResult.SUCCESS.getMessage();
         return success(message, object);
     }
 

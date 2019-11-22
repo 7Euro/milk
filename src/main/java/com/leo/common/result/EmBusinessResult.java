@@ -1,6 +1,6 @@
-package com.leo.common.utils.result;
+package com.leo.common.result;
 
-import com.leo.common.utils.result.CommonResult;
+import com.leo.common.result.CommonResult;
 import lombok.Getter;
 
 /**
@@ -25,6 +25,8 @@ public enum EmBusinessResult implements CommonResult {
     USER_REMOTEERROR(20003,"权限不足"),
     USER_REPERROR(20005,"重复操作"),
     USER_ACCOUNT_FREEZE(20006,"账号冻结"),
+    PSSWORD_NOT_NULL(20007,"密码不能为空"),
+    USER_EXIST(20008, "该用户名已经存在"),
     /**
      * 角色问题
      */
@@ -53,18 +55,13 @@ public enum EmBusinessResult implements CommonResult {
     NO_ADMINROLE_AUTH(50002, "不允许操作管理员角色"),
     NO_ADMINROLE_STATUS(50003, "不能修改管理员角色状态"),
     ;
-    private int code;
-    private String msg;
+    private Integer code;
 
-    private EmBusinessResult(int code, String msg) {
+    private String message;
+
+    EmBusinessResult(Integer code, String message) {
         this.code = code;
-        this.msg = msg;
-    }
-
-    @Override
-    public CommonResult setMsg(String msg) {
-        this.msg = msg;
-        return this;
+        this.message = message;
     }
 
 }
