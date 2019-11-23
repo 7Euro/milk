@@ -1,6 +1,6 @@
 package com.leo.service;
 
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.result.StatusEnum;
 import com.leo.domain.Menu;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;

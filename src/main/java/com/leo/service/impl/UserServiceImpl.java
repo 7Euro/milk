@@ -1,7 +1,7 @@
 package com.leo.service.impl;
 
-import com.leo.common.utils.data.PageSort;
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.data.PageSort;
+import com.leo.common.result.StatusEnum;
 import com.leo.domain.Dept;
 import com.leo.domain.User;
 import com.leo.repository.UserRepository;

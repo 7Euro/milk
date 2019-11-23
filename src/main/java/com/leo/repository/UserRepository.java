@@ -1,12 +1,9 @@
 package com.leo.repository;
 
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.result.StatusEnum;
 import com.leo.domain.Dept;
 import com.leo.domain.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

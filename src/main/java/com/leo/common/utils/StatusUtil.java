@@ -1,9 +1,9 @@
 package com.leo.common.utils;
 
-import com.leo.common.utils.constant.StatusConst;
-import com.leo.common.utils.error.BusinessException;
-import com.leo.common.utils.result.EmBusinessResult;
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.constant.StatusConst;
+import com.leo.common.error.BusinessException;
+import com.leo.common.result.EmBusinessResult;
+import com.leo.common.result.StatusEnum;
 
 /**
  * 数据状态工具
@@ -29,6 +29,7 @@ public class StatusUtil {
             return StatusEnum.valueOf(param.toUpperCase());
         } catch (IllegalArgumentException e) {
             throw new BusinessException(EmBusinessResult.STATUS_ERROR);
+
         }
     }
 }

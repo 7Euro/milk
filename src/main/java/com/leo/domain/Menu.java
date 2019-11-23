@@ -2,7 +2,7 @@ package com.leo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leo.common.utils.StatusUtil;
-import com.leo.common.utils.result.StatusEnum;
+import com.leo.common.result.StatusEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

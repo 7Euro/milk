@@ -1,6 +1,6 @@
-package com.leo.common.utils.result;
+package com.leo.common.result;
 
-import com.leo.common.utils.constant.StatusConst;
+import com.leo.common.constant.StatusConst;
 import lombok.Getter;
 
 /**

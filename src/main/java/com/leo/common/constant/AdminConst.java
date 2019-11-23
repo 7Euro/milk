@@ -1,4 +1,4 @@
-package com.leo.common.utils.constant;
+package com.leo.common.constant;
 
 /**
  * 超级管理员常量

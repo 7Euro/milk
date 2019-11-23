@@ -1,6 +1,6 @@
 package com.leo.repository;
 
-import com.leo.common.utils.constant.StatusConst;
+import com.leo.common.constant.StatusConst;
 import com.leo.domain.Dept;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;

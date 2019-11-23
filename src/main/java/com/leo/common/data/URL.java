@@ -1,4 +1,4 @@
-package com.leo.common.utils.data;
+package com.leo.common.data;
 
 import com.leo.common.utils.HttpServletUtil;
 
