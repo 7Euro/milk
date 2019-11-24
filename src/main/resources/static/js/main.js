@@ -112,6 +112,7 @@ layui.use(['element', 'form', 'layer', 'upload'], function () {
 
     /*  漂浮消息 */
     $.fn.Messager = function (result) {
+        debugger;
         if (result.code === 200) {
             layer.msg(result.msg, {offset: '15px', time: 3000, icon: 1});
             setTimeout(function () {
